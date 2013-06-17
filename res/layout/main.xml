@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" 
+        android:layout_height="match_parent"
+        >
+       <cn.mmt.app.widget.ActionBar
+        android:id="@+id/actionbar"
+        style="@style/ActionBar"
+        />
+<TabHost
+    
+	android:id="@android:id/tabhost" 
+	android:layout_below="@+id/actionbar"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">	
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent">
+		<FrameLayout android:id="@android:id/tabcontent"
+			android:layout_width="fill_parent" android:layout_height="0dip"
+			android:layout_weight="1" >
+		    <fragment android:id="@+id/find"
+		        android:name="cn.mmt.app.view.frg1"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"/>
+		    <fragment android:id="@+id/meeting"
+		        android:name="cn.mmt.app.view.frg2"      
+		         android:layout_width="match_parent"
+		        android:layout_height="match_parent"/>
+		    
+		</FrameLayout>
+ 
+		<TabWidget android:id="@android:id/tabs"
+			android:layout_width="match_parent" android:layout_height="47dp"
+			android:layout_weight="0"  
+			android:background="@drawable/bottom_banner"
+			/>
+	</LinearLayout>
+</TabHost> 
+</RelativeLayout>

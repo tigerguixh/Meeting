@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<cn.mmt.app.widget.ActionBar
+        android:id="@+id/actionbar"
+        style="@style/ActionBar"
+        />
+	<LinearLayout
+        android:id="@+id/login_content" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="40dp"
+    	android:layout_marginRight="40dp"
+    	android:layout_marginTop="40dp"
+    	>
+
+        <EditText
+            android:id="@+id/mobilenum"
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mobile_login_content"
+            android:hint="@string/mobile_number"
+            android:inputType="number"
+            android:padding="10dp" />
+        <EditText 
+            android:id="@+id/password"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mobile_login_content2"
+            android:hint="@string/mobile_pswd"
+            android:inputType="textPassword"
+            />
+        
+        <Button 
+            android:id="@+id/login"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            style="@style/TitleTextStule"
+            android:background="@drawable/mobile_login"
+            android:layout_gravity="center"
+            />
+        <ImageView 
+            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@drawable/txt_or"
+            android:layout_gravity="center"
+            />
+
+        <Button
+            android:id="@+id/register"
+            style="@style/TitleTextStule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/mobile_regist"
+            android:text="@string/reginst"
+            android:layout_gravity="center"
+            android:textColor="#999999" />
+
+        <TextView 
+            android:id="@+id/forgetPwd"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forget_password"
+            android:layout_gravity="center"
+            />
+        
+    </LinearLayout>
+</LinearLayout>

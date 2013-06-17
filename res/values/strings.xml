@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">掌上会</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="actionbar_activity_not_found">Failed to open intent</string>
+	<string name="phone_numb_login">手机号登陆</string>
+	<string name="xl_weibo_login">新浪微博登陆</string>
+	<string name="tx_weibo_login">腾讯微博登陆</string>
+	<string name="btn_try_out">试用掌上会</string>
+	<string name="httpError">连接失败</string>
+	<string name="mobile_name">手机号登陆</string>
+	<string name="check_number">验证手机号</string>
+	<string name="mobile_number">手机号</string>
+	<string name="self_mobile_number">你本人的手机号</string>
+	<string name="mobie_code">验证码</string>
+	<string name="least_six">密码，最少六位</string>
+	<string name="nickname">昵称</string>
+	<string name="again">重新发送</string>
+	<string name="mobile_pswd">密码</string>
+	<string name="login">登      陆</string>
+	<string name="reginst">通过手机号注册</string>
+	<string name="forget_password">忘记密码？</string>
+	<string name="choice_city">城市选择</string>
+	<string name="prompt">我们将向您的手机发送验证码</string>
+	<string name="next">下 一 步</string>
+	<string name="codetext">请将收到带有验证码的短信，请在此输入</string>
+	<string name="current_city">当前选择城市</string>
+	<string name="hot_city">热门城市</string>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical">
+    <cn.mmt.app.widget.ActionBar
+        android:id="@+id/actionbar"
+        style="@style/ActionBar"
+        />
+	<LinearLayout
+	    android:layout_below="@+id/actionbar"
+	    android:id="@+id/current_city" 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:layout_marginTop="10dp"
+	    android:background="@drawable/mobile_login_content"
+	    android:orientation="vertical"
+	    >
+	    <TextView android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/current_city"
+	        android:padding="10dp"
+	        android:textSize="16sp"
+	        android:textColor="@color/list_title_color"/>
+	    <TextView android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="@color/gray_line"/>
+	    <TextView android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="10dp"
+	        android:textColor="@color/txt_black"
+	        android:text="北京"/>
+	    <TextView android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="@color/gray_line"/>
+	    <TextView android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="10dp"
+	        android:textSize="16sp"
+	        android:textColor="@color/list_title_color"
+	        android:text="@string/hot_city"/>
+	    
+	</LinearLayout>
+	<ListView 
+	    android:id="@+id/list_city"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:layout_marginBottom="10dp"
+	    android:layout_below="@+id/current_city"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/mobile_login_content2"
+	    android:listSelector="#00000000"></ListView>
+	<TextView 
+	    android:layout_below="@+id/current_city"
+	    android:layout_width="match_parent"
+	    android:layout_marginLeft="11dp"
+	    android:layout_marginRight="11dp"
+	        android:layout_height="1dp"
+	        android:background="@color/gray_bg"/>
+	
+</RelativeLayout>

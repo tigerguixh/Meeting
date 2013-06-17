@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+	<cn.mmt.app.widget.ActionBar
+        android:id="@+id/actionbar"
+        style="@style/ActionBar"
+        />
+
+	<EditText
+	    android:id="@+id/mobilenum"
+	    android:layout_width="match_parent"
+	    android:layout_marginLeft="30dp"
+	    android:layout_marginRight="30dp"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/actionbar"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="40dp"
+	    android:background="@drawable/login_content"
+	    android:ems="10"
+	    android:hint="@string/self_mobile_number"
+	    android:inputType="phone"
+	    android:padding="10dp" >
+
+	    <requestFocus />
+	</EditText>
+
+	<TextView
+	    android:id="@+id/textView1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/mobilenum"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="36dp"
+	    style="@style/TitleTextStule"
+	    android:textColor="@color/mobiletextview"
+	    android:text="@string/prompt" />
+
+	<Button
+	    android:id="@+id/next"
+	    style="@style/TitleTextStule"
+	    android:layout_width="match_parent"
+	    android:layout_marginRight="30dp"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/mobilenum"
+	    android:layout_below="@+id/textView1"
+	    android:layout_marginTop="18dp"
+	    android:background="@drawable/mobile_login"
+	    android:text="@string/next" />
+
+</RelativeLayout>
