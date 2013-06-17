@@ -29,8 +29,8 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		/** 全屏显示 */
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		weibo = Weibo.getInstance(Common.APP_KEY, Common.OK_CALLBACK);
 		setContentView(R.layout.login);
 		init();

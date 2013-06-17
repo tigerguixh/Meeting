@@ -10,5 +10,8 @@ public class Common_Info {
 	
 	public static String list="list";
 
-	//
+	//手机登陆验证用户名密码
+	public static String phone = "phone";
+	public static String name = "name";
+	public static String pwd = "pwd";
 }

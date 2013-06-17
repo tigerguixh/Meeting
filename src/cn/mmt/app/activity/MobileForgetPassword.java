@@ -49,7 +49,7 @@ public class MobileForgetPassword extends Activity implements OnClickListener{
 			break;
 		}
 	}
-	public class MyHandler extends Handler{
+	public static class MyHandler extends Handler{
 		private final WeakReference<MobileForgetPassword> reference;
 		public MyHandler(MobileForgetPassword mainActivity){
 			reference = new WeakReference<MobileForgetPassword>(mainActivity);

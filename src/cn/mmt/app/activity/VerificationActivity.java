@@ -33,6 +33,8 @@ public class VerificationActivity extends Activity implements OnClickListener{
 	private ActionBar actionBar;
 	private MyHandler myHandler;
 	private Button button;
+	private static final int AGAINST = 1;
+	private static final int LOGIN = 2;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -61,22 +63,46 @@ public class VerificationActivity extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.textView3:
+			mobilenum1.setText("");
+			EditText01.setText("");
+			EditText02.setText("");
 			SendMessage.sendMessageAgainst(getIntent().getStringExtra("mobile_num"), this, new CallBackMessage() {
 				
 				public void sendCallBackMessage(List<String> list) {
 					// TODO Auto-generated method stub
 					Message message = Message.obtain(myHandler);
+					message.what = AGAINST;
 					message.obj = list;
 					message.sendToTarget();
 				}
 			});
 			break;
-
-		default:
+		case R.id.next:
+			String phone = mobilenum1.getText().toString();
+			String name = EditText01.getText().toString();
+			String pwd = EditText02.getText().toString();
+			if("".equals(phone) || "".equals(name) || "".equals(pwd)){
+				Toast.makeText(this, "字段不能为空", Toast.LENGTH_SHORT).show();
+				return;
+			}
+			if(pwd.length() < 6){
+				Toast.makeText(this, "密码最少为六位，请重新输入", Toast.LENGTH_SHORT).show();
+				return;
+			}
+			SendMessage.loginByMobile(phone,name, pwd,this, new CallBackMessage() {
+				
+				public void sendCallBackMessage(List<String> list) {
+					// TODO Auto-generated method stub
+					Message message = Message.obtain(myHandler);
+					message.what = LOGIN;
+					message.obj = list;
+					message.sendToTarget();
+				}
+			});
 			break;
 		}
 	}
-	public class MyHandler extends Handler{
+	public static  class MyHandler extends Handler{
 		private final WeakReference<VerificationActivity> reference;
 		public MyHandler(VerificationActivity mainActivity){
 			reference = new WeakReference<VerificationActivity>(mainActivity);
@@ -88,11 +114,23 @@ public class VerificationActivity extends Activity implements OnClickListener{
 			VerificationActivity mainActivity = reference.get();
 			List<String> list = (List<String>)msg.obj;
 			if(mainActivity != null){
-				if(list.size() == 0){
-					Toast.makeText(mainActivity, "网络连接错误", Toast.LENGTH_SHORT).show();
+					switch (msg.what) {
+					case AGAINST:
+						if(list.size() == 0){
+							Toast.makeText(mainActivity, "网络连接错误", Toast.LENGTH_SHORT).show();
+						}else{
+							Toast.makeText(mainActivity, "message_success", Toast.LENGTH_SHORT).show();
+						}
+						break;
+					case LOGIN:
+						if(list.size() == 0){
+							Toast.makeText(mainActivity, "网络连接错误", Toast.LENGTH_SHORT).show();
+						}else{
+							Toast.makeText(mainActivity, "login_success", Toast.LENGTH_SHORT).show();
+						}
+						break;
+					}
 				}
-				Toast.makeText(mainActivity, "success", Toast.LENGTH_SHORT).show();
 			}
 		}
 	}
-}

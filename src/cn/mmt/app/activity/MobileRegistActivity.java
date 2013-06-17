@@ -24,6 +24,7 @@ public class MobileRegistActivity extends Activity implements OnClickListener{
 	private EditText numbEditText;
 	private Button nextButton;
 	private MyHandler myHandler;
+	private static String numberString = "";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -44,13 +45,14 @@ public class MobileRegistActivity extends Activity implements OnClickListener{
 	}
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
+		numberString = numbEditText.getText().toString();
 		switch (v.getId()) {
 		case R.id.next:
-			if(numbEditText.getText() == null || "".equals(numbEditText.getText().toString())){
+			if(numberString == null || "".equals(numberString.toString())){
 				Toast.makeText(this, "电话不能为空", Toast.LENGTH_SHORT).show();
 				return;
 			}
-			SendMessage.sendMessageAgainst(numbEditText.getText().toString(), this, new CallBackMessage() {
+			SendMessage.sendMessageAgainst(numberString, this, new CallBackMessage() {
 				public void sendCallBackMessage(List<String> list) {
 					// TODO Auto-generated method stub
 					Message message = Message.obtain(myHandler);
@@ -61,7 +63,7 @@ public class MobileRegistActivity extends Activity implements OnClickListener{
 			break;
 		}
 	}
-	public class MyHandler extends Handler{
+	public static class MyHandler extends Handler{
 		private final WeakReference<MobileRegistActivity> reference;
 		public MyHandler(MobileRegistActivity mainActivity){
 			reference = new WeakReference<MobileRegistActivity>(mainActivity);
@@ -76,14 +78,14 @@ public class MobileRegistActivity extends Activity implements OnClickListener{
 				if(list.size() == 0){
 					Toast.makeText(mainActivity, "网络连接错误", Toast.LENGTH_SHORT).show();
 				}else{
-					if(getIntent().getStringExtra("message").equals("注册")){
-						Intent intent = new Intent(MobileRegistActivity.this,VerificationActivity.class);
-						intent.putExtra("mobile_num", numbEditText.getText().toString());
-						startActivity(intent);
+					if(mainActivity.getIntent().getStringExtra("message").equals("注册")){
+						Intent intent = new Intent(mainActivity,VerificationActivity.class);
+						intent.putExtra("mobile_num", numberString);
+						mainActivity.startActivity(intent);
 					}else{
-						Intent intent = new Intent(MobileRegistActivity.this,MobileForgetPassword.class);
-						intent.putExtra("mobile_num", numbEditText.getText().toString());
-						startActivity(intent);
+						Intent intent = new Intent(mainActivity,MobileForgetPassword.class);
+						intent.putExtra("mobile_num", numberString);
+						mainActivity.startActivity(intent);
 					}
 				}
 			}
