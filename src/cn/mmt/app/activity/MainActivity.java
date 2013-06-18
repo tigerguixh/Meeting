@@ -40,6 +40,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 		actionBar.setTitle(getResources().getText(R.string.app_name));
 		tabHost.setup();
 		setTabs();
+		
 	}
 	/**
 	 * 重定向actionBar
