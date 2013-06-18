@@ -75,12 +75,38 @@
         android:layout_alignLeft="@+id/linearLayout2"
         android:text="TextView" />
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/textView1"
+    android:layout_below="@+id/textView1"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="19dp"
+    android:padding="10dp"
+    android:background="@drawable/login_content" >
+
+        <ImageView
+            android:id="@+id/touxiang111"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_stub" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/touxiang111"
+            android:layout_centerHorizontal="true"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/touxiang111"
+            android:layout_alignRight="@+id/textView2"
+            android:text="TextView" />
+
 </RelativeLayout>
 
-<RelativeLayout 
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/"
-    >
-    
-    </RelativeLayout>
+</RelativeLayout>
