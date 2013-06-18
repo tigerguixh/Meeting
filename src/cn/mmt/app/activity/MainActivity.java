@@ -41,6 +41,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 		tabHost.setup();
 		setTabs();
 		
+		
 	}
 	/**
 	 * 重定向actionBar
