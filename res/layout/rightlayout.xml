@@ -1,11 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    	<TextView 
-    	    android:layout_width="wrap_content"
-    	    android:layout_height="wrap_content"
-    	    android:id="@+id/txtright"/>
+    android:orientation="vertical"
+    android:padding="10dp" >
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/touxiang"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ic_stub" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/linearLayout1"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="21dp"
+        android:layout_toRightOf="@+id/linearLayout1" >
+
+        <TextView
+            android:id="@+id/txtright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sss" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/linearLayout2"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="34dp"
+        android:src="@drawable/ico_clock" />
+
+    <TextView
+        android:id="@+id/txtright2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/imageView1"
+        android:text="sss" />
+
+    <TextView
+        android:id="@+id/txtright1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/linearLayout2"
+        android:layout_centerHorizontal="true"
+        android:text="sss" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_alignLeft="@+id/linearLayout2"
+        android:text="TextView" />
+
+</RelativeLayout>
+
+<RelativeLayout 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/"
+    >
+    
+    </RelativeLayout>

@@ -26,7 +26,10 @@
 		        android:name="cn.mmt.app.view.frg2"      
 		         android:layout_width="match_parent"
 		        android:layout_height="match_parent"/>
-		    
+		    <fragment android:id="@+id/friend"
+		        android:name="cn.mmt.app.view.FriendFragment"      
+		         android:layout_width="match_parent"
+		        android:layout_height="match_parent"/>
 		</FrameLayout>
  
 		<TabWidget android:id="@android:id/tabs"
