@@ -28,4 +28,6 @@
 	<string name="codetext">请将收到带有验证码的短信，请在此输入</string>
 	<string name="current_city">当前选择城市</string>
 	<string name="hot_city">热门城市</string>
+	<string name="my_meeting">我的会议</string>
+	<string name="account_number">账号</string>
 </resources>

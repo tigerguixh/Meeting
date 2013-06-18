@@ -10,59 +10,41 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TabHost;
+import android.widget.TabHost.OnTabChangeListener;
+import android.widget.Toast;
 import cn.mmt.app.widget.ActionBar.IntentAction;
 /**
  * @author Adil Soomro
  * 
  */
-public class MainActivity extends FragmentActivity implements OnClickListener{
+public class MainActivity extends FragmentActivity implements OnTabChangeListener {
 	private ActionBar actionBar;
 	/** Called when the activity is first created. */
 	private TabHost tabHost;
-
+	/** 底部tab标示符 */
+	private int tab_id=1;
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		init();
-		tabHost.getTabWidget().getChildAt(3).setOnClickListener(this);
 	}
 
 	private void init() {
 		actionBar = (ActionBar) findViewById(R.id.actionbar);
 		tabHost = (TabHost) findViewById(android.R.id.tabhost);
 		//璁剧疆actionbar鐩稿叧灞炴�
-		actionBar.setBtnText("城市", "搜索");
-		actionBar.setHomeAction(new IntentAction(this, new Intent(this, CityActivity.class), R.drawable.btn_bar_switch));
-		actionBar.addAction(new SearchAction());
-		actionBar.setTitle(getResources().getText(R.string.app_name));
+		
+		
+		tabHost.setOnTabChangedListener(this);
 		tabHost.setup();
 		setTabs();
 	}
 	/**
 	 * 重定向actionBar
 	 */
-	private void initBar(int actionId){
-		switch (actionId) {
-		case R.id.find:
-			actionBar.setBtnText("城市", "搜索");
-			actionBar.setHomeAction(new IntentAction(this, new Intent(this, CityActivity.class), R.drawable.btn_bar_switch));
-			actionBar.addAction(new SearchAction());
-			actionBar.setTitle(getResources().getText(R.string.app_name));
-			break;
-		case R.id.meeting:
-			
-			break;
-		case R.id.friend:
-			actionBar.setBtnText("+", "");
-			actionBar.setHomeAction(new IntentAction(this, new Intent(this, CityActivity.class), R.drawable.btn_bar_switch));
-			//actionBar.addAction(new SearchAction());
-			actionBar.setTitle(getResources().getText(R.string.app_name));
-			break;
-		}
-	}
+	
 	private void setTabs() {
 		addTab("find", R.drawable.tab_find, R.id.find);
 		addTab("meeting", R.drawable.tab_meeting, R.id.meeting);
@@ -71,8 +53,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 	}
 
 	private void addTab(String labelId, int drawableId, int c) {
-		System.out.println("--" + labelId);
-		TabHost.TabSpec spec = tabHost.newTabSpec("tab" + labelId);
+		TabHost.TabSpec spec = tabHost.newTabSpec(labelId);
 		View tabIndicator = LayoutInflater.from(this).inflate(
 				R.layout.tab_indicator, tabHost.getTabWidget(), false);
 		ImageView icon = (ImageView) tabIndicator.findViewById(R.id.icon);
@@ -103,6 +84,30 @@ public class MainActivity extends FragmentActivity implements OnClickListener{
 	public void onClick(View v) {
 //		tabHost.setCurrentTab(0); 
 //		initBar(R.id.friend);
+	}
+
+	public void onTabChanged(String tabId) {
+		// TODO Auto-generated method stub
+		if ("find".equals(tabId)) {
+			actionBar.removeAllActions();
+			actionBar.setBtnText("城市", "搜索");
+			actionBar.setHomeAction(new IntentAction(this, new Intent(this, CityActivity.class), R.drawable.btn_bar_switch));
+			actionBar.addAction(new SearchAction());
+			actionBar.setTitle(getResources().getText(R.string.app_name));
+		}else if ("meeting".equals(tabId)){
+			actionBar.removeAllActions();
+			actionBar.setBtnText("管理", "");
+			actionBar.setHomeAction(new IntentAction(this, new Intent(this, CityActivity.class), R.drawable.btn_bar_switch));
+			actionBar.setTitle(getResources().getText(R.string.my_meeting));
+		}else if ("friend".equals(tabId)){
+			actionBar.removeAllActions();
+			actionBar.setBtnText("＋", "");
+			actionBar.setHomeAction(new IntentAction(this, new Intent(this, CityActivity.class), R.drawable.btn_bar_switch));
+		}else if ("account".equals(tabId)){
+			actionBar.removeAllActions();
+			actionBar.clearHomeAction();
+			actionBar.setTitle(getResources().getText(R.string.account_number));
+		}
 	}
 
 }
